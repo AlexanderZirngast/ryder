@@ -99,6 +99,7 @@ export function SignupForm({
                         <FieldLabel htmlFor={field.name}>Password</FieldLabel>
                         <Input
                           type="password"
+                          placeholder="•••••••••"
                           {...field}
                           id={field.name}
                           aria-invalid={fieldState.invalid}
@@ -119,6 +120,7 @@ export function SignupForm({
                         </FieldLabel>
                         <Input
                           type="password"
+                               placeholder="•••••••••"
                           {...field}
                           id={field.name}
                           aria-invalid={fieldState.invalid}
