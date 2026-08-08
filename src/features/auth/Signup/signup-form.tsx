@@ -22,6 +22,8 @@ import { Controller, useForm } from "react-hook-form";
 import z from "zod";
 import { signupFormSchema } from "../schemas/signup.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 export function SignupForm({
   className,
@@ -37,7 +39,21 @@ export function SignupForm({
     },
   });
 
-  function onSubmit() {}
+  async function onSubmit(values: z.infer<typeof signupFormSchema>) {
+     const {data, error} = await authClient.signUp.email({
+      email: values.email as string,
+      name: values.fullName,
+      password: values.password,
+      callbackURL: "/"
+     })
+
+     if(!data?.user)
+      toast.error("Something went wrong during signup.")
+
+     else
+      toast.success("Successfully created account!")
+
+  }
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
