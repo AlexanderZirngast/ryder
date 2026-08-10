@@ -1,6 +1,6 @@
 "use client"
 
-import { SignupForm } from "@/features/auth/Signup/signup-form"
+import { SignupForm } from "@/features/auth/signup/signup-form"
 import { GalleryVerticalEndIcon } from "lucide-react"
 import Link from "next/link"
 
