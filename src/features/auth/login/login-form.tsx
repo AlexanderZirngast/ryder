@@ -100,7 +100,6 @@ export function LoginForm({
           )}
         />
 
-        <Field></Field>
         <Field>
           <Button type="submit">Login</Button>
         </Field>
