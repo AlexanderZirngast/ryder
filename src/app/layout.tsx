@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ThemeProvider } from "@/features/themeSwitch/theme-provider";
 
 const geistHeading = Geist({ subsets: ["latin"], variable: "--font-heading" });
 
@@ -42,8 +43,15 @@ export default function RootLayout({
         inter.variable,
         geistHeading.variable,
       )}
+      suppressHydrationWarning
     >
       <body className="min-h-full w-screen flex flex-col">
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <SidebarProvider>
           <AppSidebar />
           <main className="flex-1 overflow-auto">
@@ -53,7 +61,7 @@ export default function RootLayout({
             </div>
           </main>
         </SidebarProvider>
-     
+     </ThemeProvider>
       </body>
     </html>
   );
