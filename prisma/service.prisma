@@ -1,0 +1,17 @@
+model Service {
+  id String @id @default(cuid())
+  type ServiceType
+  createdAt DateTime
+  updatedAt DateTime
+  description String
+  motorcycle  Motorcycle @relation(fields: [motorcycleId], references: [id])
+  motorcycleId String
+}
+
+enum ServiceType {
+  OIL_CHANGE
+  CHAIN_LUBRICATION
+  TIRE_REPLACEMENT
+  BRAKE_FLUID_CHANGE
+  OTHER
+}

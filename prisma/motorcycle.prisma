@@ -1,0 +1,26 @@
+model Motorcycle {
+  id String @id @default(cuid())
+  manufacturer String 
+  modell String
+  year Int
+  color String
+  licensePlate String?
+  vin String?
+  purchasedDate DateTime?
+  purchasedPrice Decimal?
+  powerHP Decimal?
+  engineDisplacement Decimal?
+  powrKw Decimal?
+  fuelType FuelType
+  imageUrl String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  user User  @relation(fields: [userId], references: [id])
+  userId String
+  services Service[]
+}
+
+enum FuelType {
+  PETROL
+  ELECTRIC
+}

@@ -36,7 +36,7 @@ import { authClient } from "@/lib/auth-client";
 
 export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
  
-  const { data, error} =  authClient.useSession()
+  const { data, error} = authClient.useSession()
 
   const sidebarData = {
   user: {
