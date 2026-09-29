@@ -55,7 +55,7 @@ export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
       items: [
         {
           title: "Collection",
-          url: "#",
+          url: "/collection",
         },
         {
           title: "Maintenance",
