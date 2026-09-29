@@ -1,20 +1,20 @@
 model Motorcycle {
   id String @id @default(cuid())
   manufacturer String 
-  modell String
+  model String
   year Int
   color String
   licensePlate String?
-  vin String?
+  vin String? @unique
   purchasedDate DateTime?
   purchasedPrice Decimal?
-  powerHP Decimal?
-  engineDisplacement Decimal?
-  powrKw Decimal?
+  powerHP Float?
+  engineDisplacement Float?
+  powrKw Float?
   fuelType FuelType
   imageUrl String?
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   user User  @relation(fields: [userId], references: [id])
   userId String
   services Service[]
