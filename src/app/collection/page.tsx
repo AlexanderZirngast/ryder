@@ -7,13 +7,20 @@ import { headers } from "next/headers";
 
 export default async function page() {
   const session = await auth.api.getSession({ headers: await headers() });
-    if (!session?.user)
-    {
-        return null}
+  if (!session?.user) {
+    return null;
+  }
   const motorcycles = await getAllMotorcycles(session?.user?.id);
 
-  return ( <div>
-    {motorcycles.length === 0 ? <MotorcycleEmptyState/> : <div><h1>sind da </h1> </div>}
-    
-  </div>);
+  return (
+    <div>
+      {motorcycles.length === 0 ? (
+        <MotorcycleEmptyState />
+      ) : (
+        <div>
+          <h1>you have motorcycles in your collection</h1>
+        </div>
+      )}
+    </div>
+  );
 }
