@@ -2,14 +2,22 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Toaster } from "@/components/ui/sonner";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/features/themeSwitch/theme-provider";
+import { SidePanel } from "@/features/creation/side-panel";
+import { SidePanelProvider } from "@/features/creation/side-panel-provider";
 
-const geistHeading = Geist({ subsets: ["latin"], variable: "--font-heading" });
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const geistHeading = Geist({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,21 +55,27 @@ export default function RootLayout({
     >
       <body className="min-h-full w-screen flex flex-col">
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <SidebarProvider>
-          <AppSidebar />
-          <main className="flex-1 overflow-auto">
-            <SidebarTrigger />
-            <div className="max-w-5xl mx-auto p-2">
-            {children}
-            </div>
-          </main>
-        </SidebarProvider>
-     </ThemeProvider>
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SidebarProvider>
+            <SidePanelProvider>
+              <AppSidebar />
+
+              <main className="flex-1 overflow-auto">
+                <SidebarTrigger />
+
+                <div className="max-w-5xl mx-auto p-2">
+                  {children}
+                </div>
+              </main>
+
+              <SidePanel />
+            </SidePanelProvider>
+          </SidebarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
