@@ -32,6 +32,7 @@ import {
 import Link from "next/link";
 
 import { authClient } from "@/lib/auth-client";
+import { ThemeToggleSidebarItem } from "@/features/themeSwitch/ModeToggle";
 
 
 export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -103,6 +104,7 @@ export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
        
       </SidebarContent>
       <SidebarFooter>
+        <ThemeToggleSidebarItem/>
         <NavUser user={sidebarData.user} />
       </SidebarFooter>
       <SidebarRail />
