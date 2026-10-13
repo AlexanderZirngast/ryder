@@ -36,7 +36,7 @@ export function SidePanel() {
               </SheetDescription>
             </SheetHeader>
 
-            <div className="mt-6">
+            <div className="mt-6 pl-4">
               {panel.content}
             </div>
           </>
