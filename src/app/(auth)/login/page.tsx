@@ -11,7 +11,7 @@ export default async function LoginPage() {
   });
 
   if(session?.user)
-    redirect("/")
+    redirect("/dashboard")
  
   return (
     <div className="grid min-h-svh lg:grid-cols-2">

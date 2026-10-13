@@ -23,6 +23,7 @@ import {
 import { ChevronsUpDownIcon, SparklesIcon, BadgeCheckIcon, CreditCardIcon, BellIcon, LogOutIcon } from "lucide-react"
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 export function NavUser({
   user,
@@ -33,13 +34,16 @@ export function NavUser({
     avatar: string
   }
 }) {
+
+  const router = useRouter()
   const { isMobile } = useSidebar()
 
   const handleLogout = async () => {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          redirect("/login")
+          router.push("/login")
+          router.refresh()
         }
       }
     })
