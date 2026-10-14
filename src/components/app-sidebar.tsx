@@ -63,11 +63,6 @@ export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
         },
       ],
     },
-    {
-      title: "Statistics",
-      url: "/stats",
-      icon: <ChartLine />
-    },
 
     {
       title: "Settings",
