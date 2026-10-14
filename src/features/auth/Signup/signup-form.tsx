@@ -24,8 +24,9 @@ import { signupFormSchema } from "../schemas/signup.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
-export function SignupForm({
+export  function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
@@ -38,6 +39,14 @@ export function SignupForm({
       confirmPassword: "",
     },
   });
+
+    const session =  authClient.useSession ();
+
+  const router = useRouter()
+  
+  if(session?.data?.user  )
+    router.push("/login")
+    router.refresh()
 
   async function onSubmit(values: z.infer<typeof signupFormSchema>) {
      const {data, error} = await authClient.signUp.email({
