@@ -8,9 +8,10 @@ model Motorcycle {
   vin String? @unique
   purchasedDate DateTime?
   purchasedPrice Decimal?
-  powerHP Float?
+  powerHP Float
+  odoMeter String
   engineDisplacement Float?
-  powrKw Float?
+  powerKw Float?
   fuelType FuelType
   imageUrl String?
   createdAt DateTime @default(now())
