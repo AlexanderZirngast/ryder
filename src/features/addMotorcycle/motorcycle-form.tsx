@@ -6,6 +6,7 @@ import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import { MotorcycleFormSchema } from "./schemas/motorcycleFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createMotorcycle } from "@/app/(app)/collection/actions";
 export default function MotorcycleForm() {
   const form = useForm<z.infer<typeof MotorcycleFormSchema>>({
     resolver: zodResolver(MotorcycleFormSchema),
@@ -18,7 +19,10 @@ export default function MotorcycleForm() {
       vin: "",
     },
   });
-  function onSubmit(data: z.infer<typeof MotorcycleFormSchema>) {
+
+  async function onSubmit(data: z.infer<typeof MotorcycleFormSchema>) {
+
+    const response = await createMotorcycle(data)
 
     
   }
