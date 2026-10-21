@@ -14,9 +14,14 @@ import {
 } from "lucide-react";
 
 import type { LucideIcon } from "lucide-react";
+import { FieldPath } from "react-hook-form";
+
+import { MotorcycleFormSchema } from "../schemas/motorcycleFormSchema";
+import z from "zod";
+type MotorcycleFormValues = z.infer<typeof MotorcycleFormSchema>;
 
 type BaseField = {
-  name: string;
+  name: FieldPath<MotorcycleFormValues>;
   label: string;
   required?: boolean;
   icon?: LucideIcon;
@@ -88,7 +93,7 @@ export const motorcycleFields: MotorcycleField[] = [
   {
     name: "odoMeter",
     label: "Odometer (km)",
-    type: "text",
+    type: "number",
     placeholder: "15000",
     icon: Gauge,
     required: true,
