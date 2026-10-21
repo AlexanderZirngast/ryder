@@ -11,6 +11,8 @@ import {
 import { Button } from "@/components/ui/button";
 import {  Motorbike } from "lucide-react";
 import { useSidePanel } from "@/features/creation/use-side-panel";
+import Motorcycle from "@/features/addMotorcycle/motorcycle-form";
+import MotorcycleForm from "@/features/addMotorcycle/motorcycle-form";
 export default function MotorcycleEmptyState() {
 
   const { openPanel } = useSidePanel();
@@ -25,8 +27,9 @@ export default function MotorcycleEmptyState() {
       </EmptyHeader>
       <EmptyContent>
         <Button onClick={() => openPanel({
-          content: <div>test</div>,
-          title: "Add Motorcycle"
+          content: <MotorcycleForm/>,
+          title: "Add Motorcycle",
+          description: "Enter your motorcycle details."
         })}>Add Motorcycle</Button>
       </EmptyContent>
     </Empty>

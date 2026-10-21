@@ -9,6 +9,7 @@ import {
 type SidePanel = {
   title: string;
   content: ReactNode;
+  description?: string,
 };
 
 type SidePanelContextType = {

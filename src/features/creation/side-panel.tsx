@@ -29,10 +29,10 @@ export function SidePanel() {
         {panel && (
           <>
             <SheetHeader>
-              <SheetTitle>{panel.title}</SheetTitle>
+              <SheetTitle className={"font-semibold text-sm"}>{panel.title}</SheetTitle>
 
               <SheetDescription className="sr-only">
-                {panel.title}
+                {panel.description}
               </SheetDescription>
             </SheetHeader>
 
