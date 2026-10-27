@@ -44,9 +44,8 @@ export  function SignupForm({
 
   const router = useRouter()
   
-  if(session?.data?.user  )
-    router.push("/login")
-    router.refresh()
+ 
+
 
   async function onSubmit(values: z.infer<typeof signupFormSchema>) {
      const {data, error} = await authClient.signUp.email({

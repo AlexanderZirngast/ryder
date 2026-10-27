@@ -29,12 +29,14 @@ export const createMotorcycle = async (data: createMotorcycleInput) => {
         data: {
             color: data.color,
             fuelType: data.fuelType,
-            modell: data.model,
+            model: data.model,
             year: Number(data.year),
             manufacturer: data.manufacturer,
             user: {
                 connect: session.user
-            }
+            },
+            powerHP: Number(data.powerHP),
+            odoMeter: data.odoMeter,
         }
     })
 }
