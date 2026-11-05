@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import MotorcycleEmptyState from "./_components/EmptyState";
 import { auth } from "@/utils/auth";
 import { headers } from "next/headers";
+import Overview from "./_components/Overview";
 
 export default async function page() {
   const session = await auth.api.getSession({ headers: await headers() });
@@ -16,11 +17,9 @@ export default async function page() {
     <div>
       {motorcycles.length === 0 ? (
         <MotorcycleEmptyState />
-      ) : (
-        <div>
-          <h1>you have motorcycles in your collection</h1>
-        </div>
-      )}
+      ) : 
+        <Overview />
+      }
     </div>
   );
 }

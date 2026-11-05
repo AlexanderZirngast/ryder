@@ -40,3 +40,11 @@ export const createMotorcycle = async (data: createMotorcycleInput) => {
         }
     })
 }
+
+export const deleteMotorcyle =  async (id: string ) => {
+    return await prisma.motorcycle.delete({
+        where: {
+            id
+        }
+    })
+}
