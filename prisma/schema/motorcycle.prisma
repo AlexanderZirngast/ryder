@@ -9,7 +9,7 @@ model Motorcycle {
   purchasedDate DateTime?
   purchasedPrice Decimal?
   powerHP Float
-  odoMeter String
+  odoMeter Float
   engineDisplacement Float?
   powerKw Float?
   fuelType FuelType
